@@ -1,0 +1,51 @@
+<mvc:View controllerName="com.ravi.chatgpt.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" 	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+    <Page id="page" title="{i18n>title}">
+        <content />
+        	<FeedInput
+		post="onPost"
+		icon="https://static.vecteezy.com/system/resources/previews/000/439/863/original/vector-users-icon.jpg"
+		class="sapUiSmallMarginTopBottom" />
+		<IconTabBar
+		id="idIconTabBarMulti"
+		expanded="{device>/isNoPhone}"
+		class="sapUiResponsiveContentPadding">
+		<items>
+			<IconTabFilter icon="sap-icon://text" key="text">
+				<List
+				showSeparators="Inner"
+				items="{/EntryCollection}" >
+				<FeedListItem
+					sender="{Author}"
+					icon="{AuthorPicUrl}"
+					senderPress="onSenderPress"
+					iconPress="onIconPress"
+					iconDensityAware="false"
+					info="{Type}"
+					timestamp="{Date}"
+					text="{Text}"
+					convertLinksToAnchorTags="All"/>
+			</List>
+			</IconTabFilter>
+			<IconTabFilter
+				icon="sap-icon://image-viewer"
+				key="image"
+				>
+				<VBox>
+				<Label text="" id="query"></Label>
+				<Image ariaDetails="detailsActiveImage" id="imageChat"
+				src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930" 
+					width="500px"
+					decorative="false"
+					press="handleImage3Press" />
+				</VBox>
+			</IconTabFilter>
+			
+		</items>
+	</IconTabBar>
+	
+    </Page>
+</mvc:View>
